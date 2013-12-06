@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Patterns
 {
+    // State Pattern
     public class State
     {
     }
