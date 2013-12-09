@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,12 +12,6 @@ namespace Patterns
     /// </summary>
     public class Builder
     {
-        struct Point
-        {
-            int X{get;set;}
-            int Y{get;set;}
-        }
-
         private sealed class Period
         {
             // make name immutable
@@ -37,6 +32,12 @@ namespace Patterns
                     return new Period(this);
                 }
             }
+        }
+
+        [TestMethod]
+        private void TestPeriod()
+        {
+
         }
     }
 }
