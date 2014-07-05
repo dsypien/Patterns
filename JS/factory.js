@@ -8,7 +8,21 @@ CarMaker.prototype.drive = function(){
 };
 
 CarMaker.factory = function(type){
+	var newcar;
 
+	if(CarMaker[type] !== 'function'){
+		throw {
+			name: "invalid type",
+			message : type + " doesn't exist"
+		};
+	}
+
+	if(CarMaker[type].prototype.drive !== 'function'){
+		CarMaker[type].prototype = new CarMaker();
+	}
+
+	newcar = new CarMaker[type]();
+	return newcar;
 };
 
 CarMaker.Compact = function(){
