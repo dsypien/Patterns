@@ -4,13 +4,13 @@ function CarMaker() {
 }
 
 CarMaker.prototype.drive = function(){
-	return "Beep Beep, I am a" + this.type;
+	return "Beep Beep, I am a " + this.type;
 };
 
 CarMaker.factory = function(type){
 	var newcar;
 
-	if(CarMaker[type] !== 'function'){
+	if(typeof CarMaker[type] !== 'function'){
 		throw {
 			name: "invalid type",
 			message : type + " doesn't exist"
@@ -26,16 +26,24 @@ CarMaker.factory = function(type){
 };
 
 CarMaker.Compact = function(){
-	this.name = "Compact";
+	this.type = "Compact";
 	this.doors = 4;
 };
 
 CarMaker.SUV = function(){
-	this.name = "SUV";
+	this.type = "SUV";
 	this.doors = "5";
 };
 
 CarMaker.Convertible = function(){
-	this.name = "Convertible";
+	this.type = "Convertible";
 	this.doors= 2;
 };
+
+var suv = CarMaker.factory('SUV');
+var comp = CarMaker.factory('Compact');
+var conv = CarMaker.factory('Convertible');
+
+console.log(suv.drive());
+console.log(comp.drive());
+console.log(conv.drive());
